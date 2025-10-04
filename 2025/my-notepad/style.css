@@ -1,0 +1,87 @@
+/* style.css */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+h1, h2 {
+    color: #333;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+form div {
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+}
+input[type='text'],
+input[type='password'],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type='submit'] {
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.note {
+    background: #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+.note h3 {
+    margin-top: 0;
+}
+.note-meta {
+    font-size: 0.8em;
+    color: #666;
+}
+.error {
+    color: red;
+    font-weight: bold;
+}
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+.image-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.image-item input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
