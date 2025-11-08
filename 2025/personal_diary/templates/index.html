@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人日記</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 1em 2em;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 2em auto; 
+            padding: 0 1em;
+        }
+        h2 { 
+            color: #495057;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+        form { 
+            margin-bottom: 2em; 
+            background-color: #ffffff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        input[type="text"], textarea { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 15px; 
+            box-sizing: border-box; 
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        button { 
+            padding: 12px 20px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 4px;
+            cursor: pointer; 
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .diary-entry { 
+            background-color: #ffffff;
+            border: 1px solid #dee2e6; 
+            padding: 1.5em; 
+            margin-bottom: 1.5em; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .diary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5em;
+        }
+        .diary-header h3 { 
+            margin-top: 0;
+            margin-bottom: 0; 
+            color: #007bff;
+        }
+        .diary-entry small {
+            color: #6c757d;
+            display: block;
+            margin-bottom: 1em;
+        }
+        .diary-entry p { 
+            white-space: pre-wrap; 
+            line-height: 1.6;
+        }
+        .edit-link {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+        }
+        .edit-link:hover {
+            background-color: #5a6268;
+        }
+        .logout-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+        .no-diaries {
+            text-align: center;
+            color: #6c757d;
+            margin-top: 3em;
+        }
+        .year-nav {
+            margin-bottom: 2em;
+            padding: 1em;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .year-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .year-nav a {
+            display: block;
+            padding: 8px 15px;
+            background-color: #e9ecef;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .year-nav a:hover {
+            background-color: #ced4da;
+        }
+        .year-nav a.active {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>個人日記</h1>
+        <a href="{{ url_for('logout') }}" class="logout-link">ログアウト</a>
+    </header>
+
+    <div class="container">
+        <section id="new-entry">
+            <h2>新しい日記を書く</h2>
+            <form action="{{ url_for('new_diary') }}" method="post">
+                <label for="title">タイトル:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="content">内容:</label>
+                <textarea id="content" name="content" required></textarea>
+                <button type="submit">保存する</button>
+            </form>
+        </section>
+
+        {% if years %}
+        <nav class="year-nav">
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="{{ 'active' if not selected_year else '' }}">最新</a></li>
+                {% for year in years %}
+                <li><a href="{{ url_for('index', year=year) }}" class="{{ 'active' if selected_year == year else '' }}">{{ year }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% endif %}
+
+        <section id="diaries">
+            <h2>{{ display_title }}</h2>
+            {% for diary in diaries %}
+                <div class="diary-entry">
+                    <div class="diary-header">
+                        <h3>{{ diary.data.title }}</h3>
+                        <a href="{{ url_for('edit', diary_id=diary.id) }}" class="edit-link">編集</a>
+                    </div>
+                    <small>{{ diary.data.date }}</small>
+                    <p>{{ diary.data.content }}</p>
+                </div>
+            {% else %}
+                <p class="no-diaries">日記はまだありません。最初の日記を書いてみましょう！</p>
+            {% endfor %}
+        </section>
+    </div>
+</body>
+</html>
