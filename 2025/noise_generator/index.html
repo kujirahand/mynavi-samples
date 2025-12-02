@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient Noise Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Ambient Noise</h1>
+            <p>Create your perfect soundscape</p>
+        </header>
+
+        <main>
+            <div class="controls-wrapper">
+                <button id="play-btn" class="play-btn" aria-label="Play">
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mixer-grid">
+                <section class="sound-group">
+                    <h2>Noise</h2>
+                    <div class="channel">
+                        <label for="white-noise">White Noise</label>
+                        <input type="range" id="white-noise" min="0" max="1" step="0.01" value="0">
+                    </div>
+                    <div class="channel">
+                        <label for="pink-noise">Pink Noise</label>
+                        <input type="range" id="pink-noise" min="0" max="1" step="0.01" value="0">
+                    </div>
+                    <div class="channel">
+                        <label for="brown-noise">Brown Noise</label>
+                        <input type="range" id="brown-noise" min="0" max="1" step="0.01" value="0">
+                    </div>
+                </section>
+
+                <section class="sound-group">
+                    <h2>Oscillators</h2>
+                    <div class="channel">
+                        <label for="sine-wave">Sine Wave</label>
+                        <input type="range" id="sine-wave" min="0" max="1" step="0.01" value="0">
+                    </div>
+                    <div class="channel">
+                        <label for="triangle-wave">Triangle Wave</label>
+                        <input type="range" id="triangle-wave" min="0" max="1" step="0.01" value="0">
+                    </div>
+                    <div class="channel">
+                        <label for="square-wave">Square Wave</label>
+                        <input type="range" id="square-wave" min="0" max="1" step="0.01" value="0">
+                    </div>
+                    <div class="channel">
+                        <label for="sawtooth-wave">Sawtooth Wave</label>
+                        <input type="range" id="sawtooth-wave" min="0" max="1" step="0.01" value="0">
+                    </div>
+                </section>
+
+                <section class="sound-group">
+                    <h2>Master Filter</h2>
+                    <div class="channel">
+                        <label for="filter-freq">Cutoff Frequency</label>
+                        <input type="range" id="filter-freq" min="20" max="20000" step="1" value="20000">
+                    </div>
+                    <div class="channel">
+                        <label for="filter-q">Resonance</label>
+                        <input type="range" id="filter-q" min="0" max="20" step="0.1" value="0">
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with Web Audio API</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
