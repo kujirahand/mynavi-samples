@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>テキスト→動画</title>
+    <style>
+      :root {
+        --bg: #0e1116;
+        --card: #151a22;
+        --text: #e9edf2;
+        --muted: #9aa6b2;
+        --accent: #7dd3fc;
+      }
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+        background: radial-gradient(1200px 600px at 15% 10%, #1c2a3b, var(--bg));
+        color: var(--text);
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 40px auto;
+        padding: 0 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid #1f2937;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      }
+      label { display: block; margin: 14px 0 6px; color: var(--muted); }
+      input, textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid #263244;
+        background: #0f141b;
+        color: var(--text);
+        font-size: 16px;
+      }
+      textarea { min-height: 160px; resize: vertical; }
+      button {
+        margin-top: 16px;
+        background: linear-gradient(90deg, #38bdf8, #60a5fa);
+        border: none;
+        color: #0b1020;
+        font-weight: 700;
+        padding: 12px 18px;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+      .video {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid #1f2937;
+      }
+      video { width: 100%; border-radius: 12px; background: #000; }
+      .loader {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.15);
+        border-top-color: var(--accent);
+        animation: spin 1s linear infinite;
+        margin: 12px 0;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>テキスト→動画ジェネレーター</h1>
+        <form id="generator-form">
+          <label for="title">タイトル</label>
+          <input id="title" name="title" placeholder="例: 今週の学び" required />
+
+          <label for="text">読み上げテキスト</label>
+          <textarea id="text" name="text" placeholder="ここに本文を入力" required></textarea>
+
+          <button type="submit" id="submit-btn">動画作成</button>
+          <div class="note">※ 実行のたびに output.mp4 を上書きします</div>
+        </form>
+
+        <div class="video" id="status-area" style="display:none;">
+          <h2>作成中...</h2>
+          <div class="loader" aria-live="polite" aria-busy="true"></div>
+          <div class="note">音声生成と動画合成を実行中です</div>
+        </div>
+
+        {% if video_url %}
+        <div class="video">
+          <h2>生成結果</h2>
+          <video id="result-video" controls src="{{ video_url }}"></video>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById("generator-form");
+      const statusArea = document.getElementById("status-area");
+      const submitBtn = document.getElementById("submit-btn");
+      const resultVideo = document.getElementById("result-video");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        statusArea.style.display = "block";
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+        try {
+          const res = await fetch("/generate", {
+            method: "POST",
+            body: formData,
+          });
+          const data = await res.json();
+          if (!res.ok || !data.ok) {
+            throw new Error(data.error || "動画作成に失敗しました。");
+          }
+
+          if (resultVideo) {
+            resultVideo.src = data.video_url;
+            resultVideo.load();
+          } else {
+            const wrapper = document.createElement("div");
+            wrapper.className = "video";
+            wrapper.innerHTML = `
+              <h2>生成結果</h2>
+              <video id="result-video" controls src="${data.video_url}"></video>
+            `;
+            statusArea.insertAdjacentElement("afterend", wrapper);
+          }
+        } catch (err) {
+          alert(err.message);
+        } finally {
+          statusArea.style.display = "none";
+          submitBtn.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>
