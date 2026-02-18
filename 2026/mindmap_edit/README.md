@@ -4,8 +4,6 @@
 ターミナルを起動して、次のコマンドを一つずつ実行しましょう。
 
 ```bash
-# アプリの起動手順(デスクトップに配置した場合)
-cd ~/Desktop/MindmapEdit
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python app.py
@@ -15,5 +13,5 @@ python app.py
 
 具体的な取得方法や設定方法は、本連載の[14回目](https://news.mynavi.jp/techplus/article/zerovibecoding-14/)をご覧ください。
 
-そして、ブラウザで「http://127.0.0.1:5000」にアクセスしましょう。すると、テーマを入力するテキストボックスが表示されます。テーマを入力してEnterキーを押すと、ChatGPTのAPIにリクエストが送信され、関連するアイデアがマインドマップとして表示されます。
+そして、ブラウザで`http://127.0.0.1:5000`にアクセスしましょう。すると、テーマを入力するテキストボックスが表示されます。テーマを入力してEnterキーを押すと、ChatGPTのAPIにリクエストが送信され、関連するアイデアがマインドマップとして表示されます。
 
