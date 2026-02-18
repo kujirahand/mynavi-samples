@@ -1,0 +1,92 @@
+:root {
+  --bg: #f2efe8;
+  --panel: #fffdf8;
+  --ink: #202124;
+  --accent: #007f5f;
+  --accent-2: #ef8354;
+  --line: #d8d3c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+  background: radial-gradient(circle at top left, #fffaf0, var(--bg));
+  color: var(--ink);
+}
+
+.topbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-right: 8px;
+}
+
+#themeInput {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+button {
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+button#loadBtn {
+  background: var(--accent-2);
+}
+
+main {
+  padding: 12px;
+}
+
+#status {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+#jsmind_container {
+  width: 100%;
+  height: calc(100vh - 130px);
+  min-height: 480px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  #themeInput {
+    width: 100%;
+  }
+}

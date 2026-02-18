@@ -1,0 +1,178 @@
+{
+  "savedAt": "2026-02-17T14:38:46.583416Z",
+  "nodes": [
+    {
+      "id": "root",
+      "topic": "プログラマーが開業するカフェ",
+      "expanded": true,
+      "isroot": true
+    },
+    {
+      "id": "4d5cecca-b3c1-487d-83f4-e060abfd9f61",
+      "topic": "コンセプト",
+      "expanded": true,
+      "parentid": "root",
+      "direction": "right"
+    },
+    {
+      "id": "b8206911-b4e6-4253-9659-756abf7a0683",
+      "topic": "プログラミング特化",
+      "expanded": true,
+      "parentid": "4d5cecca-b3c1-487d-83f4-e060abfd9f61"
+    },
+    {
+      "id": "83030a4c-686f-4e87-90c5-9bcd41242876",
+      "topic": "静かな作業環境",
+      "expanded": true,
+      "parentid": "4d5cecca-b3c1-487d-83f4-e060abfd9f61"
+    },
+    {
+      "id": "1cc7dede-20ac-41cc-b717-c666f0826f64",
+      "topic": "無料Wi-Fi・電源",
+      "expanded": true,
+      "parentid": "4d5cecca-b3c1-487d-83f4-e060abfd9f61"
+    },
+    {
+      "id": "b772efd0-8769-4368-9e72-2d77c8a99ed4",
+      "topic": "設備",
+      "expanded": false,
+      "parentid": "root",
+      "direction": "right"
+    },
+    {
+      "id": "b86cb88f-260e-4b1b-8714-541998c4b213",
+      "topic": "高速インターネット",
+      "expanded": true,
+      "parentid": "b772efd0-8769-4368-9e72-2d77c8a99ed4"
+    },
+    {
+      "id": "ec67266d-f429-4fb0-8d58-8efcadc62d68",
+      "topic": "充電設備",
+      "expanded": true,
+      "parentid": "b772efd0-8769-4368-9e72-2d77c8a99ed4"
+    },
+    {
+      "id": "17ef7795-ec14-4495-8baa-fa5e4a3099db",
+      "topic": "モニター貸出",
+      "expanded": true,
+      "parentid": "b772efd0-8769-4368-9e72-2d77c8a99ed4"
+    },
+    {
+      "id": "cee5ac12-0a93-4daa-af86-f497d7aadf91",
+      "topic": "メニュー",
+      "expanded": true,
+      "parentid": "root",
+      "direction": "right"
+    },
+    {
+      "id": "e35b426f-bcf2-4cd0-8401-6fdfb7b5bde4",
+      "topic": "コーヒー・軽食",
+      "expanded": true,
+      "parentid": "cee5ac12-0a93-4daa-af86-f497d7aadf91"
+    },
+    {
+      "id": "f5ecc0a9-19d5-45bc-8ccb-17701a541ab3",
+      "topic": "健康志向メニュー",
+      "expanded": true,
+      "parentid": "cee5ac12-0a93-4daa-af86-f497d7aadf91"
+    },
+    {
+      "id": "79ec0dbc-f7fd-422a-966e-309297417b60",
+      "topic": "エナジードリンク",
+      "expanded": true,
+      "parentid": "cee5ac12-0a93-4daa-af86-f497d7aadf91"
+    },
+    {
+      "id": "4ab9b0e3-017c-44ec-b755-6abfa96da712",
+      "topic": "集客・マーケティング",
+      "expanded": true,
+      "parentid": "root",
+      "direction": "right"
+    },
+    {
+      "id": "e5ee445b-687c-47f9-803a-6f5531110e89",
+      "topic": "SNS活用",
+      "expanded": true,
+      "parentid": "4ab9b0e3-017c-44ec-b755-6abfa96da712"
+    },
+    {
+      "id": "492e24ab-c64d-49c3-a323-c12ca747c20d",
+      "topic": "プログラミングイベント開催",
+      "expanded": true,
+      "parentid": "4ab9b0e3-017c-44ec-b755-6abfa96da712"
+    },
+    {
+      "id": "798e6683-4a63-4134-b5dc-e5bd1629ba17",
+      "topic": "コワーキングスペース連携",
+      "expanded": true,
+      "parentid": "4ab9b0e3-017c-44ec-b755-6abfa96da712"
+    },
+    {
+      "id": "n_d2dd6a51-4126-4a22-81e6-1483aa321bcd",
+      "topic": "ロボット猫と遊べる",
+      "expanded": true,
+      "parentid": "4ab9b0e3-017c-44ec-b755-6abfa96da712"
+    },
+    {
+      "id": "n_c85de128-4fff-4af1-8e67-d84742a3aceb",
+      "topic": "ターゲット層の設定",
+      "expanded": true,
+      "parentid": "n_d2dd6a51-4126-4a22-81e6-1483aa321bcd"
+    },
+    {
+      "id": "n_ef9c37eb-65dc-466b-b4ae-be70d7c1ab65",
+      "topic": "プロモーション動画制作",
+      "expanded": true,
+      "parentid": "n_d2dd6a51-4126-4a22-81e6-1483aa321bcd"
+    },
+    {
+      "id": "n_cb220e09-4f5d-4f71-873d-b8da8bf1d7ec",
+      "topic": "SNSキャンペーン展開",
+      "expanded": true,
+      "parentid": "n_d2dd6a51-4126-4a22-81e6-1483aa321bcd"
+    },
+    {
+      "id": "n_95a7c308-0bc8-4e04-860e-e5542d05be9d",
+      "topic": "イベント開催企画",
+      "expanded": true,
+      "parentid": "n_d2dd6a51-4126-4a22-81e6-1483aa321bcd"
+    },
+    {
+      "id": "n_110c59b6-c210-4c05-bbe9-70fbc78b0252",
+      "topic": "体験レビュー収集",
+      "expanded": true,
+      "parentid": "n_d2dd6a51-4126-4a22-81e6-1483aa321bcd"
+    },
+    {
+      "id": "n_2b04b7fb-2816-4521-a15e-37f8827ea9a5",
+      "topic": "インフルエンサー連携",
+      "expanded": true,
+      "parentid": "n_d2dd6a51-4126-4a22-81e6-1483aa321bcd"
+    },
+    {
+      "id": "d9f822da-7643-4d1a-9e9f-d306b9e096b0",
+      "topic": "運営",
+      "expanded": true,
+      "parentid": "root",
+      "direction": "right"
+    },
+    {
+      "id": "5ed70610-43c4-4988-a4e9-e8aeddb984ae",
+      "topic": "営業時間設定",
+      "expanded": true,
+      "parentid": "d9f822da-7643-4d1a-9e9f-d306b9e096b0"
+    },
+    {
+      "id": "96199708-788f-4f38-8956-ddaad1e549a1",
+      "topic": "スタッフ採用",
+      "expanded": true,
+      "parentid": "d9f822da-7643-4d1a-9e9f-d306b9e096b0"
+    },
+    {
+      "id": "9dd62592-08fb-4155-bdf3-690257a48ed1",
+      "topic": "コスト管理",
+      "expanded": true,
+      "parentid": "d9f822da-7643-4d1a-9e9f-d306b9e096b0"
+    }
+  ]
+}
