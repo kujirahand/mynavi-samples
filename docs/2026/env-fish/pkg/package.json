@@ -1,0 +1,15 @@
+{
+  "name": "env-fish",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "env_fish_bg.wasm",
+    "env_fish.js",
+    "env_fish.d.ts"
+  ],
+  "main": "env_fish.js",
+  "types": "env_fish.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
