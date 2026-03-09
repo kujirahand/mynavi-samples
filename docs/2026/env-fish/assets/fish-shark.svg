@@ -1,0 +1,28 @@
+<svg width="320" height="170" viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sharkBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b0c1cd"/>
+      <stop offset="0.45" stop-color="#778d9f"/>
+      <stop offset="1" stop-color="#41586b"/>
+    </linearGradient>
+    <linearGradient id="sharkBelly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9e3ea"/>
+      <stop offset="1" stop-color="#a6b7c4"/>
+    </linearGradient>
+    <radialGradient id="sharkShine" cx="0.32" cy="0.23" r="0.62">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <path d="M68 84C87 48 124 31 177 34C217 36 247 51 263 68C253 82 253 90 263 102C245 121 216 135 176 136C124 137 88 121 68 84Z" fill="url(#sharkBody)"/>
+  <path d="M112 95C141 109 191 112 230 94C222 111 204 121 174 122C145 123 123 112 112 95Z" fill="url(#sharkBelly)" opacity="0.72"/>
+  <path d="M150 41L180 9L205 43Z" fill="#6a8192"/>
+  <path d="M163 104L185 136L151 111Z" fill="#637a8b"/>
+  <path d="M126 102L101 124L114 96Z" fill="#657c8d"/>
+  <ellipse cx="176" cy="86" rx="103" ry="50" fill="url(#sharkShine)"/>
+  <path d="M190 77C207 69 227 69 243 77" stroke="#d5e0e8" stroke-width="2.6" stroke-linecap="round" opacity="0.62"/>
+  <path d="M173 82L187 84L173 86Z" fill="#e8f1f7" opacity="0.68"/>
+  <circle cx="236" cy="71" r="6" fill="#1a2931"/>
+  <circle cx="238" cy="69.4" r="1.8" fill="#f5fbff" opacity="0.88"/>
+</svg>

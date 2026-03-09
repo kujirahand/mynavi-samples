@@ -1,0 +1,21 @@
+<svg width="240" height="130" viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="eBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3d9a6"/>
+      <stop offset="0.45" stop-color="#ddb573"/>
+      <stop offset="1" stop-color="#c7924f"/>
+    </linearGradient>
+    <pattern id="eScale" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M0 10C3 5 7 5 10 10" fill="none" stroke="#f7e6c6" stroke-opacity="0.3" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <ellipse cx="130" cy="66" rx="70" ry="33" fill="url(#eBody)"/>
+  <path d="M60 66L18 37V95L60 66Z" fill="#c58f4e"/>
+  <path d="M100 42C116 26 138 25 160 40" fill="#e5c286" opacity="0.75"/>
+  <path d="M110 93C127 104 149 103 165 92" fill="#c99656" opacity="0.72"/>
+  <ellipse cx="131" cy="67" rx="67" ry="30" fill="url(#eScale)"/>
+  <path d="M120 50C125 54 125 79 120 82" stroke="#ab7a3f" stroke-width="2.3" stroke-linecap="round"/>
+  <path d="M116 66C125 60 137 60 146 66" stroke="#ffe9c3" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
+  <circle cx="172" cy="58" r="5.2" fill="#2a2320"/>
+  <circle cx="173.7" cy="56.5" r="1.6" fill="#fff5df" opacity="0.9"/>
+</svg>

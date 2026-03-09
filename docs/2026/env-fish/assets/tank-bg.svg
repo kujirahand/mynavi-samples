@@ -1,0 +1,30 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7d93"/>
+      <stop offset="0.55" stop-color="#0e5066"/>
+      <stop offset="1" stop-color="#063848"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0.5" cy="0.1" r="0.7">
+      <stop offset="0" stop-color="#c1edf6" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#c1edf6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurPlant" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#water)"/>
+  <rect width="1600" height="900" fill="url(#light)"/>
+
+  <g opacity="0.28" filter="url(#blurPlant)">
+    <path d="M80 880C120 720 95 550 180 420C130 560 185 730 165 880Z" fill="#5d8e6d"/>
+    <path d="M300 880C360 700 325 600 405 430C365 560 425 720 398 880Z" fill="#6a9877"/>
+    <path d="M580 880C640 720 620 620 705 430C655 580 716 730 690 880Z" fill="#5e8f6f"/>
+    <path d="M960 880C1020 700 1020 610 1100 430C1048 570 1110 732 1085 880Z" fill="#6f9f79"/>
+    <path d="M1290 880C1360 710 1325 600 1408 420C1366 575 1420 725 1392 880Z" fill="#638f73"/>
+  </g>
+
+  <path d="M0 860C210 800 420 790 620 828C760 855 890 858 1040 835C1200 810 1360 804 1600 858V900H0Z" fill="#3d5e66" opacity="0.22"/>
+  <path d="M0 878C260 838 468 834 720 864C930 888 1210 890 1600 872V900H0Z" fill="#5b7266" opacity="0.16"/>
+</svg>

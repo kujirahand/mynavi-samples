@@ -1,0 +1,27 @@
+{
+  "fishCount": 20,
+  "schoolFishCount": 28,
+  "environmentSound": {
+    "enabled": true,
+    "volume": 0.045
+  },
+  "speed": {
+    "main": 1.0,
+    "school": 1.0,
+    "round": 1.0,
+    "shark": 1.55,
+    "ray": 0.8
+  },
+  "visual": {
+    "plantMotion": 1.6,
+    "bubbleDensity": 2.4,
+    "lifeGame": {
+      "enabled": true,
+      "density": 0.4,
+      "stepSeconds": 0.7,
+      "spawnEverySteps": 5,
+      "opacity": 0.4,
+      "cellSize": 18
+    }
+  }
+}
