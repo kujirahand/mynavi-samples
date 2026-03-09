@@ -1,6 +1,7 @@
 # 癒やしの水槽アプリ (Rust + WebAssembly)
 
 魚の移動ロジックを Rust で計算し、WebAssembly 経由でブラウザ描画に反映する環境アプリです。
+[こちら](https://kujirahand.github.io/mynavi-samples/2026/env-fish/)にて動作を確認できます。
 
 ## 実装内容
 
