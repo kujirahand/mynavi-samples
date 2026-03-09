@@ -10,7 +10,6 @@
     </pattern>
   </defs>
   <ellipse cx="130" cy="66" rx="70" ry="33" fill="url(#eBody)"/>
-  <path d="M60 66L18 37V95L60 66Z" fill="#c58f4e"/>
   <path d="M100 42C116 26 138 25 160 40" fill="#e5c286" opacity="0.75"/>
   <path d="M110 93C127 104 149 103 165 92" fill="#c99656" opacity="0.72"/>
   <ellipse cx="131" cy="67" rx="67" ry="30" fill="url(#eScale)"/>
