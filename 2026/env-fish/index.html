@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>癒やしの水槽</title>
+<style>
+:root {
+  --bg-0: #021118;
+  --bg-1: #063248;
+  --plant-motion: 1.2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Avenir Next", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, #0a3a4b 0%, transparent 40%),
+    radial-gradient(circle at 80% 90%, #0e5a73 0%, transparent 45%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  color: #dceef5;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.aquarium-app {
+  width: min(100%, 1080px);
+}
+
+#aquarium {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(165, 222, 241, 0.3);
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 239, 252, 0.08),
+    0 30px 60px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(180deg, #0b4961, #022532 78%);
+}
+
+#tank-bg,
+#life-layer,
+#plant-layer,
+#back-particles,
+#school-layer,
+#front-particles,
+#fish-layer,
+.glass-highlight {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#tank-bg {
+  object-fit: cover;
+  filter: saturate(1.1) contrast(1.05) blur(0.3px);
+  opacity: 0.95;
+}
+
+#life-layer {
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.38;
+  mix-blend-mode: screen;
+  filter: blur(0.25px);
+}
+
+#plant-layer {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.plant {
+  --amp: 9deg;
+  --lean: 2deg;
+  --base: 0.32;
+  position: absolute;
+  bottom: -14%;
+  width: clamp(70px, 10vw, 140px);
+  height: 98%;
+  transform-origin: 50% 100%;
+  opacity: var(--base);
+  filter: blur(1.15px);
+  animation:
+    plant-sway calc(8.5s / var(--plant-motion)) cubic-bezier(0.42, 0, 0.35, 1) infinite,
+    plant-pulse calc(13.2s / var(--plant-motion)) ease-in-out infinite;
+}
+
+.plant::before {
+  content: "";
+  position: absolute;
+  left: 48.5%;
+  bottom: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(111, 170, 125, 0.04), rgba(92, 154, 109, 0.58));
+}
+
+.plant::after {
+  content: "";
+  position: absolute;
+  inset: 8% 9% 0;
+  border-radius: 60% 38% 56% 44%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(170, 230, 176, 0.22), transparent 55%),
+    linear-gradient(180deg, rgba(123, 186, 130, 0.13), rgba(70, 121, 82, 0.56));
+}
+
+.p1 {
+  left: 2%;
+  --amp: 13deg;
+  --base: 0.3;
+  animation-delay: -2.6s;
+}
+
+.p2 {
+  left: 14%;
+  --amp: 11deg;
+  --base: 0.26;
+  height: 104%;
+  animation-delay: -6.1s;
+}
+
+.p3 {
+  left: 28%;
+  --amp: 16deg;
+  --lean: -1deg;
+  --base: 0.29;
+  animation-delay: -3.7s;
+}
+
+.p4 {
+  left: 43%;
+  --amp: 10deg;
+  --base: 0.22;
+  height: 108%;
+  animation-delay: -8.5s;
+}
+
+.p5 {
+  left: 57%;
+  --amp: 14deg;
+  --base: 0.25;
+  animation-delay: -1.5s;
+}
+
+.p6 {
+  left: 68%;
+  --amp: 12deg;
+  --base: 0.26;
+  height: 106%;
+  animation-delay: -9.2s;
+}
+
+.p7 {
+  left: 80%;
+  --amp: 15deg;
+  --lean: -2deg;
+  --base: 0.24;
+  animation-delay: -4.2s;
+}
+
+.p8 {
+  left: 90%;
+  --amp: 9deg;
+  --base: 0.2;
+  height: 95%;
+  animation-delay: -7.4s;
+}
+
+@keyframes plant-sway {
+  0% {
+    transform: rotate(calc(-1 * var(--amp) + var(--lean))) skewX(-2deg) scaleX(0.95);
+  }
+  18% {
+    transform: rotate(calc(var(--amp) * 0.45 + var(--lean))) skewX(2.5deg) scaleX(1.05);
+  }
+  52% {
+    transform: rotate(calc(var(--amp) + var(--lean))) skewX(5deg) scaleX(1.08);
+  }
+  74% {
+    transform: rotate(calc(var(--amp) * -0.42 + var(--lean))) skewX(-3.2deg) scaleX(0.94);
+  }
+  100% {
+    transform: rotate(calc(-1 * var(--amp) + var(--lean))) skewX(-2deg) scaleX(0.95);
+  }
+}
+
+@keyframes plant-pulse {
+  0% {
+    opacity: calc(var(--base) - 0.03);
+  }
+  50% {
+    opacity: calc(var(--base) + 0.09);
+  }
+  100% {
+    opacity: calc(var(--base) - 0.03);
+  }
+}
+
+#back-particles {
+  z-index: 2;
+}
+
+#school-layer {
+  z-index: 2;
+  pointer-events: none;
+}
+
+#fish-layer {
+  z-index: 3;
+}
+
+#front-particles {
+  z-index: 4;
+  pointer-events: none;
+}
+
+.fish {
+  position: absolute;
+  width: clamp(96px, 11vw, 148px);
+  aspect-ratio: 220 / 120;
+  transform-origin: 52% 52%;
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.16));
+  will-change: transform, opacity;
+}
+
+.fish--shark {
+  width: clamp(126px, 15vw, 204px);
+}
+
+.fish--ray {
+  width: clamp(132px, 16vw, 216px);
+}
+
+.fish-body,
+.fish-tail {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.fish-body {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 52% 54%;
+}
+
+.fish-tail {
+  left: -26%;
+  top: 29%;
+  width: 44%;
+  height: 42%;
+  transform-origin: 90% 50%;
+  opacity: 0.95;
+}
+
+.school-fish {
+  position: absolute;
+  width: clamp(20px, 2.2vw, 32px);
+  height: auto;
+  opacity: 0.74;
+  filter: blur(0.1px) drop-shadow(0 2px 2px rgba(0, 0, 0, 0.22));
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.glass-highlight {
+  z-index: 5;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.06) 16%,
+      transparent 30%,
+      transparent 72%,
+      rgba(255, 255, 255, 0.08) 88%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+  mix-blend-mode: screen;
+}
+</style>
+  </head>
+  <body>
+    <main class="aquarium-app">
+      <section id="aquarium" aria-label="水槽">
+        <img id="tank-bg" src="./assets/tank-bg.svg" alt="水槽背景" />
+        <canvas id="life-layer"></canvas>
+        <div id="plant-layer" aria-hidden="true">
+          <span class="plant p1"></span>
+          <span class="plant p2"></span>
+          <span class="plant p3"></span>
+          <span class="plant p4"></span>
+          <span class="plant p5"></span>
+          <span class="plant p6"></span>
+          <span class="plant p7"></span>
+          <span class="plant p8"></span>
+        </div>
+        <canvas id="back-particles"></canvas>
+        <div id="school-layer" aria-hidden="true"></div>
+        <div id="fish-layer"></div>
+        <canvas id="front-particles"></canvas>
+        <div class="glass-highlight"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

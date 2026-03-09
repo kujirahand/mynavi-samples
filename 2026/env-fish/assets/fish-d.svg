@@ -1,0 +1,22 @@
+<svg width="240" height="130" viewBox="0 0 240 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d0dbe3"/>
+      <stop offset="0.45" stop-color="#a5b9c8"/>
+      <stop offset="1" stop-color="#7f95a5"/>
+    </linearGradient>
+    <radialGradient id="dShine" cx="0.35" cy="0.25" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="132" cy="66" rx="72" ry="34" fill="url(#dBody)"/>
+  <path d="M62 66L20 39V93L62 66Z" fill="#8ca2b2"/>
+  <path d="M108 41C120 28 140 25 156 37" fill="#9fb3c2" opacity="0.85"/>
+  <path d="M112 92C126 101 146 102 160 92" fill="#8ea3b2" opacity="0.7"/>
+  <ellipse cx="134" cy="67" rx="70" ry="33" fill="url(#dShine)"/>
+  <path d="M120 66C129 61 140 60 149 66" stroke="#dce7ef" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+  <path d="M126 50C130 53 130 79 126 82" stroke="#758a99" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="176" cy="58" r="5.2" fill="#1e2a30"/>
+  <circle cx="177.7" cy="56.5" r="1.6" fill="#f6fbff" opacity="0.85"/>
+</svg>
