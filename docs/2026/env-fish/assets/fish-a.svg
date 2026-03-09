@@ -11,7 +11,6 @@
     </radialGradient>
   </defs>
   <ellipse cx="130" cy="66" rx="71" ry="33" fill="url(#aBody)"/>
-  <path d="M60 66L18 39V93L60 66Z" fill="#c67c63"/>
   <path d="M103 42C117 28 140 26 160 39" fill="#efb18f" opacity="0.74"/>
   <path d="M110 92C126 101 148 101 163 92" fill="#cc846b" opacity="0.74"/>
   <ellipse cx="131" cy="66" rx="69" ry="32" fill="url(#aShine)"/>

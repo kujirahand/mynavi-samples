@@ -1,4 +1,4 @@
 <svg width="96" height="72" viewBox="0 0 96 72" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8 36C33 20 50 14 87 10C73 28 73 44 87 62C51 58 33 52 8 36Z" fill="#76c8b2"/>
-  <path d="M26 36C39 32 53 29 69 28" stroke="#d9fff3" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <path d="M88 36C63 20 46 14 9 10C23 28 23 44 9 62C45 58 63 52 88 36Z" fill="#76c8b2"/>
+  <path d="M70 36C57 32 43 29 27 28" stroke="#d9fff3" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
 </svg>
