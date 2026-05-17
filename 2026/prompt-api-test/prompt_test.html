@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Model Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Prompt / Language Model APIのテスト</h1>
+    <p>
+        プロンプト:<br>
+        <textarea id="textArea" rows="5" cols="60"></textarea><br>
+        <button id="createButton">生成</button>
+    </p>
+    <p id="result"></p>
+    <script>
+        // テキストエリアの要素を取得
+        const textArea = document.getElementById('textArea');
+        const createButton = document.getElementById('createButton');
+        textArea.value = '世界で一番面白い猫の物語を作ってください。';
+        // ボタンがクリックされたときのイベントリスナーを設定
+        createButton.addEventListener('click', async function() {
+            const inputText = textArea.value;
+            const outputText = await lmCreate(inputText);
+            document.getElementById('result').textContent = outputText;
+        });
+        // 言語モデルを作成し、プロンプトを送信する関数
+        async function lmCreate(prompt) {
+            // 言語モデルが利用可能かを確認
+            if (!LanguageModel) {
+                alert('APIはサポートされていません');
+                return;
+            }
+            // モデルが利用可能かをテスト
+            const availability = await LanguageModel.availability({
+                expectedInputs: [{ type: 'text', languages: ['ja'] }],
+                expectedOutputs: [{ type: 'text', languages: ['ja'] }]
+            });
+            console.log('Language Model availability:', availability);
+            if (availability != 'available') {
+                alert('モデルが利用できません');
+                return;
+            }
+            // セッションを作成してプロンプトを送信
+            const session = await LanguageModel.create({
+                expectedInputs: [
+                    { type: 'text', languages: ['ja'] }
+                ],
+                expectedOutputs: [
+                    { type: 'text', languages: ['ja'] }
+                ],
+                initialPrompts: [{
+                    role: 'system',
+                    content: 'あなたは親切な日本語のアシスタントです。短く答えてください。'
+                }],
+                monitor(m) { // 経過を表示
+                    m.addEventListener('downloadprogress', e => {
+                        console.log(`download: ${Math.round(e.loaded * 100)}%`);
+                    });
+                },
+            });
+            // プロンプトを送信して結果を取得
+            const result = await session.prompt(prompt);
+           console.log(result);
+           return result;
+        }
+    </script>
+</body>
+</html>
