@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>リバーシ</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <h1>対戦リバーシ</h1>
+      <button id="restart" type="button">最初から</button>
+    </header>
+    <p id="status" class="status">読み込み中...</p>
+    <section class="panel" aria-label="リバーシ盤">
+      <div id="board" class="board" aria-label="reversi board"></div>
+    </section>
+    <p id="score" class="score"></p>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
