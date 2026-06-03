@@ -1,6 +1,8 @@
 # web-app
 
 リバーシAIをWebAssemblyで動かすWebアプリです。
+[こちら](https://kujirahand.github.io/mynavi-samples/2026/reversi/index.html)から、実際にリバーシを遊ぶことができます。
+
 
 ## ビルド方法
 
