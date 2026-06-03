@@ -1,0 +1,15 @@
+{
+  "name": "web-app",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "web_app_bg.wasm",
+    "web_app.js",
+    "web_app.d.ts"
+  ],
+  "main": "web_app.js",
+  "types": "web_app.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
