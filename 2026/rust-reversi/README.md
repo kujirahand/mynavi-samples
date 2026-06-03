@@ -15,3 +15,6 @@
     └── src --- Rustのコード
 ```
 
+- [こちら](https://kujirahand.github.io/mynavi-samples/2026/reversi/index.html)から、実際にリバーシを遊ぶことができます。
+
+
