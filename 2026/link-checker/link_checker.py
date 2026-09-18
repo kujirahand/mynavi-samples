@@ -35,6 +35,7 @@ WAIT_TIME = (0.5, 1.5)  # リクエスト間の待機秒数の範囲（最小, �
 TIMEOUT = 5.0  # リクエストタイムアウト秒数
 USER_AGENT = "link-checker/1.0"  # 送信するUser-Agent
 MAX_DEPTH = 2  # 最大再帰の深さ
+EXCLUDE_EXTENSIONS = (".pdf", ".jpg", ".jpeg", ".png", ".gif", ".zip", ".svg", ".ico", ".mp4", ".mp3")  # ダウンロードしない拡張子
 
 
 @dataclass
@@ -151,6 +152,12 @@ def is_internal(checker: LinkChecker, url: str) -> bool:
     return urlparse(url).netloc == checker.base_domain
 
 
+def is_excluded(url: str) -> bool:
+    """グローバル定数EXCLUDE_EXTENSIONSに該当し、ダウンロード対象外かどうかを判定する"""
+    path = urlparse(url).path.lower()
+    return path.endswith(EXCLUDE_EXTENSIONS)
+
+
 def sleep_random() -> None:
     """グローバル定数WAIT_TIMEの範囲でランダムに待機し、サーバーへの負荷を抑える"""
     min_wait, max_wait = WAIT_TIME
@@ -235,6 +242,9 @@ def crawl(checker: LinkChecker) -> None:
                 continue
 
             link_url = normalize_url(urljoin(url, raw_href))
+
+            if is_excluded(link_url):
+                continue
 
             check_and_record(checker, link_url, source_page=url)
 
