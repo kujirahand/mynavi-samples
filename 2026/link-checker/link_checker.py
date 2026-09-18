@@ -153,7 +153,7 @@ def is_internal(checker: LinkChecker, url: str) -> bool:
 
 
 def is_excluded(url: str) -> bool:
-    """グローバル定数EXCLUDE_EXTENSIONSに該当し、ダウンロード対象外かどうかを判定する"""
+    """ダウンロード対象外かどうかを判定する"""
     path = urlparse(url).path.lower()
     return path.endswith(EXCLUDE_EXTENSIONS)
 
@@ -214,9 +214,9 @@ def crawl(checker: LinkChecker) -> None:
 
     while queue:
         url, depth = queue.pop(0)
-        if url in checker.visited_pages:
+        if url in checker.visited_pages:  # 既に巡回済みなら除外する
             continue
-        checker.visited_pages.add(url)
+        checker.visited_pages.add(url)  # 巡回済みに追加
 
         print(f"[CRAWL] depth={depth} {url}")
         html, code, error = fetch_page(checker, url)
@@ -235,22 +235,24 @@ def crawl(checker: LinkChecker) -> None:
             checker.stats.broken_links += 1
             continue
 
-        soup = BeautifulSoup(html, "html.parser")
+        # HTMLをパースしてリンクを抽出し、チェックおよびキューへの追加を行う
+        soup = BeautifulSoup(html, "html.parser")  # HTMLをパース
+        # <a>タグを取り出して繰り返す
         for a_tag in soup.find_all("a", href=True):
             raw_href = str(a_tag["href"]).strip()
             if not raw_href or raw_href.startswith(("mailto:", "tel:", "javascript:")):
                 continue
-
+            # URLを正規化して絶対URLに変換
             link_url = normalize_url(urljoin(url, raw_href))
-
+            # 除外対象の拡張子はスキップ
             if is_excluded(link_url):
                 continue
-
+            # リンクの生死をチェックして結果を記録
             check_and_record(checker, link_url, source_page=url)
-
+            # 内部リンクであればキューに追加して再帰的にクロール
             if is_internal(checker, link_url) and depth + 1 <= checker.max_depth:
                 if link_url not in checker.visited_pages and link_url not in queued:
-                    queue.append((link_url, depth + 1))
+                    queue.append((link_url, depth + 1))  # キューに追加
                     queued.add(link_url)
 
 
