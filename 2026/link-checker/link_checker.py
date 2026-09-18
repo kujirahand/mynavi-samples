@@ -31,7 +31,7 @@ from bs4 import BeautifulSoup
 
 CACHE_DIR = Path("cache")
 MANIFEST_PATH = CACHE_DIR / "manifest.json"
-WAIT_TIME = (0.5, 1.5)  # リクエスト間の待機秒数の範囲（最小, 最大）
+WAIT_TIME = (1.0, 3.0)  # リクエスト間の待機秒数の範囲（最小, 最大）
 TIMEOUT = 5.0  # リクエストタイムアウト秒数
 USER_AGENT = "link-checker/1.0"  # 送信するUser-Agent
 MAX_DEPTH = 2  # 最大再帰の深さ
